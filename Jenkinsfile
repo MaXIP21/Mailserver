@@ -34,11 +34,6 @@ pipeline
                 }
             } 
         }
-        stage('Install Dependencies') {
-            steps {
-                sh "npm install"
-            }
-        }
         stage('Owasp fs scan') {
             steps {
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'dp-check'
